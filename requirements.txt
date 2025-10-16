@@ -1,0 +1,6 @@
+numpy>=1.21
+# gurobipy may not be available via public PyPI for all platforms.
+# If gurobipy is available for your platform/environment you can add it here,
+# otherwise follow Gurobi's installation instructions to install the Python
+# bindings and configure the license.
+# gurobipy
