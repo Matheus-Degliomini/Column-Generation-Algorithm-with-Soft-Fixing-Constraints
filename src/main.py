@@ -163,6 +163,7 @@ if argv[2] not in ['0','1','2','3','4','5','6','7','8','9']:
 inst = Instance.Instance(argv[1])
 print(f"Loading instance: {os.path.abspath(argv[1])}")
 print(inst)
+print('=' * 50 + '\n')
 soft_type = argv[2]
 model = ColGenSF.MP(inst)
 print(f'K = {k}')
@@ -196,7 +197,7 @@ model.print_solution()
 model.report_solution(k)
 
 
-
+print('=' * 50 + '\n')
 if soft_type != '0':
     print('Starting Column Generation with Soft Fixing ...\n')
 else:
@@ -222,13 +223,7 @@ while True:
     elif soft_type == '3':
         model.soft_fixing_type3()
         model.column_generation_2()
-        while model.column_found == True:
-            model.remove_soft_fixing()
-            model.soft_fixing_type3()
-            model.column_generation_2()
-        
         model.remove_soft_fixing()
-        
     elif soft_type == '4':
         model.soft_fixing_type4()
         model.column_generation()
@@ -277,9 +272,9 @@ while True:
         new_columns = columns_after - columns_before
         print(f'Number of columns after Soft Fixing stage: {new_columns}')
         model.file.write(f'Number of columns after Soft Fixing stage: {new_columns}\n')
-        #input()
         break
-    
+
+print('=' * 50 + '\n')
 print('Column Generation with Soft Fixing finished.\n')
 
 model.bounds_return()
