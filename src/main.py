@@ -197,7 +197,13 @@ model.report_solution(k)
 
 
 
-print('Starting Column Generation with Soft Fixing ...\n')
+if soft_type != '0':
+    print('Starting Column Generation with Soft Fixing ...\n')
+else:
+    print('No Soft Fixing selected. Executed only the baseline Column Generation algorithm.\n')
+
+
+
 begin_2 = time()
 while True:
     
